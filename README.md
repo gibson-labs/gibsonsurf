@@ -3,7 +3,7 @@
 A full-stack Surfing Website application built with Flask (Backend) and React + TypeScript (Frontend).
 
 ## Project Structure 
-```
+``` 
 personal-portfolio/
 ├── backend/               # Flask API
 │   ├── app/              # Application code
