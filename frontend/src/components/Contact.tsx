@@ -1,99 +1,167 @@
-import React from 'react';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { Github, Linkedin, Mail } from 'lucide-react';
+
+import { MapPin, Phone, Mail, Clock } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 
 const Contact = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // In a real app, you would handle the form submission here
-    console.log('Form submitted');
+    // Handle form submission here
+    console.log("Form submitted");
   };
 
   return (
-    <section id="contact" className="py-20">
-      <div className="container mx-auto px-4">
-        <h2 className="section-heading">Get In Touch</h2>
-        <p className="text-muted-foreground mb-12 max-w-2xl">
-          Have a question or want to work together? Feel free to reach out.
-        </p>
-        
+    <section id="contact" className="py-20 bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-4">
+            Get In Touch
+          </h2>
+          <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+            Ready to order your custom board? Have questions about our process? 
+            We'd love to hear from you and help you find the perfect board.
+          </p>
+        </div>
+
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          {/* Contact Info */}
           <div>
-            <h3 className="text-xl font-semibold mb-4">Contact Information</h3>
-            <p className="text-muted-foreground mb-6">
-              I'm currently open to freelance opportunities and am looking for full-time positions starting in December.
-              If you have a project that could use my help, please don't hesitate to reach out.
-            </p>
+            <h3 className="text-2xl font-bold text-slate-800 mb-8">Visit Our Shop</h3>
             
-            <div className="space-y-4 mb-8">
-              <div className="flex items-center">
-                <Mail size={20} className="text-primary mr-3" />
-                <a href="mailto:johnmgibson3@gmail.com" className="hover:text-primary transition-colors">
-                  johnmgibson3@gmail.com
-                </a>
+            <div className="space-y-6">
+              <div className="flex items-start space-x-4">
+                <MapPin className="w-6 h-6 text-blue-600 mt-1" />
+                <div>
+                  <h4 className="font-semibold text-slate-800">Address</h4>
+                  <p className="text-slate-600">
+                    123 Surf Street<br />
+                    Huntington Beach, CA 92648
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start space-x-4">
+                <Phone className="w-6 h-6 text-blue-600 mt-1" />
+                <div>
+                  <h4 className="font-semibold text-slate-800">Phone</h4>
+                  <p className="text-slate-600">(714) 555-SURF</p>
+                </div>
+              </div>
+
+              <div className="flex items-start space-x-4">
+                <Mail className="w-6 h-6 text-blue-600 mt-1" />
+                <div>
+                  <h4 className="font-semibold text-slate-800">Email</h4>
+                  <p className="text-slate-600">info@gibsonsurfboards.com</p>
+                </div>
+              </div>
+
+              <div className="flex items-start space-x-4">
+                <Clock className="w-6 h-6 text-blue-600 mt-1" />
+                <div>
+                  <h4 className="font-semibold text-slate-800">Hours</h4>
+                  <p className="text-slate-600">
+                    Monday - Friday: 9AM - 6PM<br />
+                    Saturday: 9AM - 5PM<br />
+                    Sunday: 11AM - 4PM
+                  </p>
+                </div>
               </div>
             </div>
-            
-            <h3 className="text-xl font-semibold mb-4">Connect With Me</h3>
-            <div className="flex gap-4">
-              <a 
-                href="https://github.com/johnmgibson3" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="p-3 bg-secondary rounded-full hover:bg-primary/20 transition-colors"
-                aria-label="GitHub"
-              >
-                <Github size={20} />
-              </a>
-              <a 
-                href="https://www.linkedin.com/in/john-gibson-iii" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="p-3 bg-secondary rounded-full hover:bg-primary/20 transition-colors"
-                aria-label="LinkedIn"
-              >
-                <Linkedin size={20} />
-              </a>
+
+            <div className="mt-8 p-6 bg-blue-50 rounded-lg">
+              <h4 className="font-semibold text-slate-800 mb-2">Custom Board Process</h4>
+              <p className="text-slate-600 text-sm">
+                Custom boards typically take 4-6 weeks from design to completion. 
+                We'll work with you every step of the way to ensure your board is perfect.
+              </p>
             </div>
           </div>
-          
-          <div className="glass p-6">
-            <h3 className="text-xl font-semibold mb-4">Send a Message</h3>
-            <form onSubmit={handleSubmit} className="space-y-4">
+
+          {/* Contact Form */}
+          <div>
+            <h3 className="text-2xl font-bold text-slate-800 mb-8">Send Us a Message</h3>
+            
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm font-medium text-slate-700 mb-2">
+                    First Name
+                  </label>
+                  <Input 
+                    type="text" 
+                    required 
+                    className="w-full"
+                    placeholder="Your first name"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-slate-700 mb-2">
+                    Last Name
+                  </label>
+                  <Input 
+                    type="text" 
+                    required 
+                    className="w-full"
+                    placeholder="Your last name"
+                  />
+                </div>
+              </div>
+
               <div>
-                <Input
-                  type="text"
-                  placeholder="Your Name"
-                  required
-                  className="bg-secondary/50"
+                <label className="block text-sm font-medium text-slate-700 mb-2">
+                  Email
+                </label>
+                <Input 
+                  type="email" 
+                  required 
+                  className="w-full"
+                  placeholder="your@email.com"
                 />
               </div>
+
               <div>
-                <Input
-                  type="email"
-                  placeholder="Your Email"
-                  required
-                  className="bg-secondary/50"
+                <label className="block text-sm font-medium text-slate-700 mb-2">
+                  Phone (Optional)
+                </label>
+                <Input 
+                  type="tel" 
+                  className="w-full"
+                  placeholder="(555) 123-4567"
                 />
               </div>
+
               <div>
-                <Input
-                  type="text"
-                  placeholder="Subject"
-                  required
-                  className="bg-secondary/50"
+                <label className="block text-sm font-medium text-slate-700 mb-2">
+                  Board Type
+                </label>
+                <select className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                  <option value="">Select board type</option>
+                  <option value="longboard">Longboard</option>
+                  <option value="shortboard">Shortboard</option>
+                  <option value="funboard">Funboard</option>
+                  <option value="fish">Fish</option>
+                  <option value="gun">Gun</option>
+                  <option value="custom">Custom Design</option>
+                </select>
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-slate-700 mb-2">
+                  Message
+                </label>
+                <Textarea 
+                  required 
+                  className="w-full h-32"
+                  placeholder="Tell us about your surfing style, preferred dimensions, or any specific requirements..."
                 />
               </div>
-              <div>
-                <Textarea
-                  placeholder="Your Message"
-                  required
-                  className="min-h-[150px] bg-secondary/50"
-                />
-              </div>
-              <Button type="submit" className="w-full">
+
+              <Button 
+                type="submit" 
+                className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3"
+              >
                 Send Message
               </Button>
             </form>
@@ -104,4 +172,4 @@ const Contact = () => {
   );
 };
 
-export default Contact; 
+export default Contact;

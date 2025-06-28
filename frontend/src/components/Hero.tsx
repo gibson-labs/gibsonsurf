@@ -1,54 +1,68 @@
 import { Button } from '@/components/ui/button';
-import { ArrowDown } from 'lucide-react';
-import portraitImage from '@/assets/images/portrait.jpeg';
+
 
 const Hero = () => {
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    element?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center">
-      <div className="container mx-auto px-4 py-16 md:py-24 mb">
-        <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
-          <div className="flex-1 max-w-2xl">
-            <p className="text-primary mb-2 animate-fade-in opacity-0" style={{ animationDelay: '0.2s' }}>
-              Hello, my name is
-            </p>
-            <h1 className="text-4xl md:text-6xl font-bold mb-4 animate-fade-in opacity-0" style={{ animationDelay: '0.4s' }}>
-              John Gibson
-            </h1>
-            <h2 className="text-3xl md:text-4xl font-bold text-muted-foreground mb-6 animate-fade-in opacity-0" style={{ animationDelay: '0.6s' }}>
-              Information Systems Student at BYU's Marriott School of Business
-            </h2>
-            <p className="text-lg text-muted-foreground mb-8 max-w-xl animate-fade-in opacity-0" style={{ animationDelay: '0.8s' }}>
-              I'm an aspiring cloud engineer specializing in building secure, scalable, and efficient software solutions.
-            </p>
-            <div className="flex flex-wrap gap-4 animate-fade-in opacity-0" style={{ animationDelay: '1s' }}>
-              <Button size="lg" asChild>
-                <a href="#projects">View My Work</a>
-              </Button>
-              <Button size="lg" variant="outline" asChild>
-                <a href="#contact">Contact Me</a>
-              </Button>
-            </div>
-          </div>
-          <div className="flex-shrink-0 w-64 h-64 md:w-80 md:h-80 animate-fade-in opacity-0" style={{ animationDelay: '1.2s' }}>
-            <img 
-              src={portraitImage} 
-              alt="John Gibson" 
-              className="w-full h-full object-cover rounded-full border-4 border-primary/20"
-            />
-          </div>
+    <section id="home" className="relative h-screen flex items-center justify-center overflow-hidden">
+      {/* Background Image */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: `url('https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=2000&q=80')`
+        }}
+      >
+        <div className="absolute inset-0 bg-black/40"></div>
+      </div>
+
+      {/* Content */}
+      <div className="relative z-10 text-center text-white px-4 max-w-4xl mx-auto">
+        <h1 className="text-5xl md:text-7xl font-bold mb-6 animate-fade-in">
+          Gibson Surf Boards
+        </h1>
+        <p className="text-xl md:text-2xl mb-8 opacity-90 animate-fade-in animation-delay-300">
+          Handcrafted with passion. Shaped for perfection. 
+          <br />
+          Custom surfboards made by our family for yours.
+        </p>
+        <div className="space-x-4 animate-fade-in animation-delay-500">
+          <Button 
+            size="lg" 
+            onClick={() => scrollToSection('boards')}
+             className="bg-blue-700 hover:bg-blue-800 text-white px-8 py-4 text-lg font-semibold rounded-full shadow-2xl transform hover:scale-105 transition-all duration-300"
+          >
+            View Our Boards
+          </Button>
+          <Button 
+            size="lg" 
+            variant="outline" 
+            onClick={() => scrollToSection('contact')}
+            className="border-2 border-white/80 text-white hover:bg-white hover:text-slate-900 px-8 py-4 text-lg font-semibold rounded-full backdrop-blur-sm bg-white/10 transform hover:scale-105 transition-all duration-300"
+          >
+            Get Custom Quote
+          </Button>
         </div>
       </div>
-      <div className="hidden md:flex absolute bottom-8 left-1/2 -translate-x-1/2">
-        <a 
-          href="#projects" 
-          className="animate-bounce-subtle text-primary"
-          aria-label="Scroll to projects"
+
+      {/* Scroll indicator */}
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white animate-bounce">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="w-8 h-8"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          strokeWidth={3}
         >
-          <ArrowDown size={24} />
-        </a>
+          <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+        </svg>
       </div>
     </section>
   );
 };
 
-export default Hero; 
+export default Hero;
