@@ -1,5 +1,8 @@
 
 import { useState } from "react";
+import spaceboard from "../assets/images/spaceboard.jpg";
+import TyeDyeFire from "../assets/images/TyeDyeFire.jpg";
+
 
 const BoardGallery = () => {
   const boards = [
@@ -12,9 +15,9 @@ const BoardGallery = () => {
     },
     {
       id: 2,
-      name: "Performance Shortboard",
-      description: "High-performance board for advanced surfers. Quick and responsive.",
-      image: "https://images.unsplash.com/photo-1482938289607-e9573fc25ebb?auto=format&fit=crop&w=800&q=80",
+      name: "StarBoard",
+      description: "surf to the moon and back. (this is an example of how to set pictures for lachy to change later)",
+      image: spaceboard,
       specs: { length: "6'2\"", width: "19\"", thickness: "2.5\"" }
     },
     {
@@ -28,7 +31,7 @@ const BoardGallery = () => {
       id: 4,
       name: "Fish Twin Fin",
       description: "Retro-inspired design with modern performance.",
-      image: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=800&q=80",
+      image: TyeDyeFire,
       specs: { length: "6'8\"", width: "22\"", thickness: "2.5\"" }
     },
     {
