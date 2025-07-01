@@ -22,7 +22,8 @@ const About = () => {
       icon: <Heart className="w-8 h-8 text-blue-600" />,
       title: "Passion Driven",
       description: "Our love for surfing and the ocean drives everything we create."
-    }
+    },
+    
   ];
 
   return (

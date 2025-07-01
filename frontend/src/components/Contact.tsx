@@ -27,18 +27,18 @@ const Contact = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Contact Info */}
           <div>
-            <h3 className="text-2xl font-bold text-slate-800 mb-8">Visit Our Shop</h3>
+            <h3 className="text-2xl font-bold text-slate-800 mb-8">Send Us a Message</h3>
             
             <div className="space-y-6">
               <div className="flex items-start space-x-4">
-                <MapPin className="w-6 h-6 text-blue-600 mt-1" />
+                {/* <MapPin className="w-6 h-6 text-blue-600 mt-1" />
                 <div>
                   <h4 className="font-semibold text-slate-800">Address</h4>
                   <p className="text-slate-600">
                     123 Surf Street<br />
                     Huntington Beach, CA 92648
                   </p>
-                </div>
+                </div> */}
               </div>
 
               <div className="flex items-start space-x-4">
@@ -81,9 +81,9 @@ const Contact = () => {
 
           {/* Contact Form */}
           <div>
-            <h3 className="text-2xl font-bold text-slate-800 mb-8">Send Us a Message</h3>
+            {/* <h3 className="text-2xl font-bold text-slate-800 mb-8">Send Us a Message</h3> */}
             
-            <form onSubmit={handleSubmit} className="space-y-6">
+            {/* <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-sm font-medium text-slate-700 mb-2">
@@ -164,7 +164,7 @@ const Contact = () => {
               >
                 Send Message
               </Button>
-            </form>
+            </form> */}
           </div>
         </div>
       </div>

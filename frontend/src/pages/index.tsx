@@ -1,3 +1,4 @@
+
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import BoardGallery from '@/components/BoardGallery';
