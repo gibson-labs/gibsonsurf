@@ -1,0 +1,7 @@
+.github
+.venv
+.vscode/*
+package-lock.json
+/node_modules
+/tmp
+.DS_Store
