@@ -23,7 +23,7 @@ const Hero = () => {
       <div className="relative z-10 text-center text-white px-4 max-w-4xl mx-auto">
       <div className="mb-4 animate-fade-in">
           <span className="inline-block px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-sm font-medium border border-white/20">
-          🇵🇹 Handcrafted in Portugal since 1985
+          🇵🇹 Handcrafted in Portugal since 2022
           </span>
         </div>
         <h1 className="text-6xl md:text-8xl font-bold mb-6 animate-fade-in">

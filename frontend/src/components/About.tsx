@@ -37,7 +37,7 @@ const About = () => {
               About Gibson Surf Boards
             </h2>
             <p className="text-lg text-slate-600 mb-6">
-              Founded in 2023 by master shaper John Gibson Jr. and his son Lachlan Gibson, our family has been creating 
+              Founded in 2022 by master shaper John Gibson Jr. and his son Lachlan Gibson, our family has been creating 
               exceptional surfboards for three generations. What started as a family passion project in the 70s
               in a small garage in Southern California has grown into an exceptional local business based out of the beautiful Algarve, Portugal.
             </p>
