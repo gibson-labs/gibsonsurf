@@ -1,5 +1,6 @@
 
 import { Users, Award, Heart, Wrench } from "lucide-react";
+import sadgabbyImage from "../assets/images/sadgabby.jpg";
 
 const About = () => {
   const features = [
@@ -66,7 +67,7 @@ const About = () => {
           {/* Image */}
           <div className="relative">
             <img 
-              src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=800&q=80" 
+              src={sadgabbyImage} 
               alt="Surfboard workshop"
               className="rounded-lg shadow-xl"
             />
