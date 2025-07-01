@@ -21,8 +21,15 @@ const Hero = () => {
 
       {/* Content */}
       <div className="relative z-10 text-center text-white px-4 max-w-4xl mx-auto">
-        <h1 className="text-5xl md:text-7xl font-bold mb-6 animate-fade-in">
-          Gibson Surf Boards
+      <div className="mb-4 animate-fade-in">
+          <span className="inline-block px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-sm font-medium border border-white/20">
+          🇵🇹 Handcrafted in Portugal since 1985
+          </span>
+        </div>
+        <h1 className="text-6xl md:text-8xl font-bold mb-6 animate-fade-in">
+          <span className="text-white">Gibson</span>
+          <br />
+          <span className="text-4xl md:text-6xl font-light">Surf Boards</span>
         </h1>
         <p className="text-xl md:text-2xl mb-8 opacity-90 animate-fade-in animation-delay-300">
           Handcrafted with passion. Shaped for perfection. 

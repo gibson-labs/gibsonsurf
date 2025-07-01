@@ -50,11 +50,17 @@ const BoardGallery = () => {
   const [selectedBoard, setSelectedBoard] = useState(null);
 
   return (
-    <section id="boards" className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-4">
-            Our Boards
+    <section id="boards" className="py-24 bg-white relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="text-center mb-20">
+          <span className="inline-block px-6 py-3 bg-blue-100 text-blue-800 rounded-full text-sm font-medium mb-6 animate-fade-in">
+            Our Creations
+          </span>
+          
+          <h2 className="text-5xl md:text-6xl font-bold text-slate-800 mb-6 animate-fade-in">
+            <span className="text-slate-800">Handcrafted</span>
+            <br />
+            <span className="text-3xl md:text-4xl font-light">Boards</span>
           </h2>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto">
             Each board is meticulously handcrafted using premium materials and decades of experience. 
@@ -62,29 +68,49 @@ const BoardGallery = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {boards.map((board) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+          {boards.map((board, index) => (
             <div 
               key={board.id}
-              className="group cursor-pointer transform transition-all duration-300 hover:scale-105 hover:shadow-2xl"
-              onClick={() => setSelectedBoard(boards)}
+              className={`group cursor-pointer transform transition-all duration-500 hover:scale-105 hover:shadow-2xl animate-fade-in`}
+              style={{ animationDelay: `${index * 0.1}s` }}
+              onClick={() => setSelectedBoard(board)}
             >
-              <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-                <div className="relative overflow-hidden">
+              <div className="bg-white rounded-3xl shadow-xl overflow-hidden border border-slate-100 hover:border-blue-200 transition-all duration-300">
+                <div className="relative overflow-hidden h-72">
                   <img 
                     src={board.image} 
                     alt={board.name}
-                    className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  
+                  {/* Price badge */}
+                  {/* <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm text-blue-800 px-4 py-2 rounded-full font-bold text-lg shadow-lg">
+                    {board.price}
+                  </div> */}
                 </div>
-                <div className="p-6">
-                  <h3 className="text-2xl font-bold text-slate-800 mb-2">{board.name}</h3>
-                  <p className="text-slate-600 mb-4">{board.description}</p>
-                  <div className="flex justify-between text-sm text-slate-500">
-                    <span>Length: {board.specs.length}</span>
-                    <span>Width: {board.specs.width}</span>
-                    <span>Thick: {board.specs.thickness}</span>
+                
+                <div className="p-8">
+                  <div className="mb-4">
+                    <h3 className="text-2xl font-bold text-slate-800 mb-1">{board.name}</h3>
+                  </div>
+                  
+                  <p className="text-slate-600 mb-6 leading-relaxed">{board.description}</p>
+                  
+                  <div className="flex justify-between text-sm bg-slate-50 p-4 rounded-2xl">
+                    <div className="text-center">
+                      <div className="font-semibold text-slate-800">Length</div>
+                      <div className="text-slate-600">{board.specs.length}</div>
+                    </div>
+                    <div className="text-center">
+                      <div className="font-semibold text-slate-800">Width</div>
+                      <div className="text-slate-600">{board.specs.width}</div>
+                    </div>
+                    <div className="text-center">
+                      <div className="font-semibold text-slate-800">Thickness</div>
+                      <div className="text-slate-600">{board.specs.thickness}</div>
+                    </div>
                   </div>
                 </div>
               </div>

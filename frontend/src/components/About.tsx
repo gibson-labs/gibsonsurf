@@ -36,12 +36,12 @@ const About = () => {
               About Gibson Surf Boards
             </h2>
             <p className="text-lg text-slate-600 mb-6">
-              Founded in 1985 by master shaper Mike Gibson, our family business has been creating 
-              exceptional surfboards for nearly four decades. What started as a passion project 
-              in a small garage has grown into a respected name in the surfing community.
+              Founded in 2023 by master shaper John Gibson Jr. and his son Lachlan Gibson, our family has been creating 
+              exceptional surfboards for three generations. What started as a family passion project in the 70s
+              in a small garage in Southern California has grown into an exceptional local business based out of the beautiful Algarve, Portugal.
             </p>
             <p className="text-lg text-slate-600 mb-8">
-              Today, Mike works alongside his son Jake and daughter Sarah to continue the Gibson 
+              Today, John works alongside his son Lachlan to continue the Gibson 
               tradition of excellence. Each board is shaped by hand, glassed in-house, and finished 
               with the care and attention that only comes from true craftsmanship.
             </p>
@@ -50,10 +50,10 @@ const About = () => {
             <div className="grid grid-cols-3 gap-6 mb-8">
               <div className="text-center">
                 <div className="text-3xl font-bold text-blue-600 mb-2">38+</div>
-                <div className="text-sm text-slate-600">Years of Experience</div>
+                <div className="text-sm text-slate-600">Years of Family Experience</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-blue-600 mb-2">1000+</div>
+                <div className="text-3xl font-bold text-blue-600 mb-2">100+</div>
                 <div className="text-sm text-slate-600">Boards Crafted</div>
               </div>
               <div className="text-center">
@@ -72,7 +72,7 @@ const About = () => {
             />
             <div className="absolute -bottom-6 -left-6 bg-blue-600 text-white p-6 rounded-lg shadow-lg">
               <p className="font-semibold">"Every board tells a story"</p>
-              <p className="text-sm opacity-90">- Mike Gibson, Founder</p>
+              <p className="text-sm opacity-90">- John Gibson Jr., Founder</p>
             </div>
           </div>
         </div>

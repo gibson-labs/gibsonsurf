@@ -16,9 +16,14 @@ const Navbar = () => {
     <nav className="fixed top-0 w-full bg-white/90 backdrop-blur-md z-50 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          <div className="flex-shrink-0">
-            <h1 className="text-2xl font-bold text-slate-800">Gibson Surf Bddoards</h1>
-          </div>d
+        <div className="flex-shrink-0">
+            <h1 className="text-3xl font-bold">
+              <span className="text-slate-800">Gibson</span>
+              <span className="text-slate-600 text-xl ml-2">Surf Boards</span>
+            </h1>
+            <p className="text-xs text-slate-500 mt-1">Lagos, Portugal</p>
+          </div>
+          
           
           {/* Desktop Navigation */}
           <div className="hidden md:block">

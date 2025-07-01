@@ -1,8 +1,8 @@
 
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
+// import { Button } from "@/components/ui/button";
+// import { Input } from "@/components/ui/input";
+// import { Textarea } from "@/components/ui/textarea";
 
 const Contact = () => {
   const handleSubmit = (e: React.FormEvent) => {
@@ -45,7 +45,7 @@ const Contact = () => {
                 <Phone className="w-6 h-6 text-blue-600 mt-1" />
                 <div>
                   <h4 className="font-semibold text-slate-800">Phone</h4>
-                  <p className="text-slate-600">(714) 555-SURF</p>
+                  <p className="text-slate-600">TBD</p>
                 </div>
               </div>
 
@@ -53,7 +53,7 @@ const Contact = () => {
                 <Mail className="w-6 h-6 text-blue-600 mt-1" />
                 <div>
                   <h4 className="font-semibold text-slate-800">Email</h4>
-                  <p className="text-slate-600">info@gibsonsurfboards.com</p>
+                  <p className="text-slate-600">example@gibsonsurfboards.com</p>
                 </div>
               </div>
 
@@ -64,7 +64,7 @@ const Contact = () => {
                   <p className="text-slate-600">
                     Monday - Friday: 9AM - 6PM<br />
                     Saturday: 9AM - 5PM<br />
-                    Sunday: 11AM - 4PM
+                    Sunday: Closed
                   </p>
                 </div>
               </div>
