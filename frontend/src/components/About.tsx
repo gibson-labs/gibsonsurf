@@ -1,6 +1,6 @@
 
 import { Users, Award, Heart, Wrench } from "lucide-react";
-import sadgabbyImage from "../assets/images/sadgabby.jpg";
+import lachlanorangeboard from "../assets/images/lachlanorangeboard.jpg";
 
 const About = () => {
   const features = [
@@ -76,7 +76,7 @@ const About = () => {
           {/* Image */}
           <div className="relative">
             <img 
-              src={sadgabbyImage} 
+              src={lachlanorangeboard} 
               alt="Surfboard workshop"
               className="rounded-lg shadow-xl"
             />
