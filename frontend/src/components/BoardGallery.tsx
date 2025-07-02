@@ -121,12 +121,17 @@ const BoardGallery = () => {
           ))}
         </div>
 
-        <div className="text-center mt-12">
-          <p className="text-lg text-slate-600 mb-6">
-            Don't see what you're looking for? We specialize in custom boards tailored to your style.
+        
+        <div className="text-center mt-16 p-10 bg-gradient-to-r from-slate-50 to-blue-50 rounded-3xl border border-slate-200">
+          <h3 className="text-2xl font-bold text-slate-800 mb-4">
+            Don't see what you're looking for?
+          </h3>
+          <p className="text-lg text-slate-600 mb-8 max-w-2xl mx-auto">
+            We specialize in custom boards tailored to your style and the unique conditions 
+            of Portugal's coasts. Every surfer's dream deserves the perfect board.
           </p>
-          <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors duration-300">
-            Request Custom Board
+          <button className="bg-blue-700 hover:bg-blue-800 text-white px-10 py-4 rounded-full font-semibold text-lg shadow-xl transform hover:scale-105 transition-all duration-300">
+            Custom Board
           </button>
         </div>
       </div>

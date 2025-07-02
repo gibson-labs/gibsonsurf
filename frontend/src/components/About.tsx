@@ -28,14 +28,23 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="py-20 bg-slate-50">
+    <section id="about" className="py-24 bg-gradient-to-b from-slate-50 to-blue-50 wave-pattern">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Text Content */}
-          <div>
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-6">
-              About Gibson Surf Boards
-            </h2>
+          <div className="animate-fade-in">
+            <div className="mb-6">
+              <span className="inline-block px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-medium mb-4">
+                Our Story
+              </span>
+              <h2 className="text-5xl md:text-6xl font-bold text-slate-800 mb-6">
+                <span>Gibson</span>
+                <br />
+                <span className="text-3xl md:text-4xl font-light text-slate-600">Surf Boards</span>
+              </h2>
+            </div>
+            
+           
             <p className="text-lg text-slate-600 mb-6">
               Founded in 2022 by master shaper John Gibson Jr. and his son Lachlan Gibson, our family has been creating 
               exceptional surfboards for three generations. What started as a family passion project in the 70s

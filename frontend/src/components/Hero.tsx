@@ -48,7 +48,7 @@ const Hero = () => {
             size="lg" 
             variant="outline" 
             onClick={() => scrollToSection('contact')}
-            className="border-2 border-white/80 text-white hover:bg-white hover:text-slate-900 px-8 py-4 text-lg font-semibold rounded-full backdrop-blur-sm bg-white/10 transform hover:scale-105 transition-all duration-300"
+            className="border-2 border-white/80 text-white hover:bg-white hover:text-slate-900 px-8 py-4 text-lg font-semibold rounded-full backdrop-blur-sm bg-white/15 transform hover:scale-105 transition-all duration-300"
           >
             Get Custom Quote
           </Button>
