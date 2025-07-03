@@ -1,6 +1,6 @@
 
 import { Users, Award, Heart, Wrench } from "lucide-react";
-import lachlanorangeboard from "../assets/images/lachlanorangeboard.jpg";
+import grandpa from "../assets/images/surfboards/grandpa.png";
 
 const About = () => {
   const features = [
@@ -46,7 +46,7 @@ const About = () => {
             
            
             <p className="text-lg text-slate-600 mb-6">
-              Founded in 2022 by master shaper John Gibson Jr. and his son Lachlan Gibson, our family has been creating 
+              Founded in by master shaper John Gibson Jr. and his son Lachlan Gibson, our family has been creating 
               exceptional surfboards for three generations. What started as a family passion project in the 70s
               in a small garage in Southern California has grown into an exceptional local business based out of the beautiful Algarve, Portugal.
             </p>
@@ -57,9 +57,9 @@ const About = () => {
             </p>
             
             {/* Stats */}
-            <div className="grid grid-cols-3 gap-6 mb-8">
+            {/* <div className="grid grid-cols-3 gap-6 mb-8">
               <div className="text-center">
-                <div className="text-3xl font-bold text-blue-600 mb-2">38+</div>
+                <div className="text-2xl font-bold text-blue-600 mb-2">Family Owned</div>
                 <div className="text-sm text-slate-600">Years of Family Experience</div>
               </div>
               <div className="text-center">
@@ -70,19 +70,19 @@ const About = () => {
                 <div className="text-3xl font-bold text-blue-600 mb-2">3</div>
                 <div className="text-sm text-slate-600">Generations</div>
               </div>
-            </div>
+            </div> */}
           </div>
 
           {/* Image */}
           <div className="relative">
             <img 
-              src={lachlanorangeboard} 
+              src={grandpa} 
               alt="Surfboard workshop"
               className="rounded-lg shadow-xl"
             />
             <div className="absolute -bottom-6 -left-6 bg-blue-600 text-white p-6 rounded-lg shadow-lg">
               <p className="font-semibold">"Every board tells a story"</p>
-              <p className="text-sm opacity-90">- John Gibson Jr., Founder</p>
+              <p className="text-sm opacity-90">- Lachlan Gibson, Founder</p>
             </div>
           </div>
         </div>

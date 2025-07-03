@@ -2,15 +2,16 @@
 import { useState } from "react";
 import spaceboard from "../assets/images/spaceboard.jpg";
 import TyeDyeFire from "../assets/images/TyeDyeFire.jpg";
+import HighPerformance from "../assets/images/surfboards/AlgarveHighPerformanceBottom.jpg";
 
 
 const BoardGallery = () => {
   const boards = [
     {
       id: 1,
-      name: "Classic Longboard",
-      description: "Perfect for beginners and cruising. 9'6\" of pure elegance.",
-      image: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=800&q=80",
+      name: "The \"Algarve\"",
+      description: "A high-performance shortboard designed for the Algarve's powerful waves.",
+      image: HighPerformance,
       specs: { length: "9'6\"", width: "23\"", thickness: "3\"" }
     },
     {
@@ -66,8 +67,8 @@ const BoardGallery = () => {
             <span className="text-3xl md:text-4xl font-light">Boards</span>
           </h2>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-            Each board is meticulously handcrafted using premium materials and decades of experience. 
-            From classic longboards to high-performance shortboards, we shape boards for every surfer.
+          Each board is hand-shaped and glassed with precision, using premium materials and backed by decades of craftsmanship. 
+          From timeless longboards to high-performance shortboards, we create custom boards for surfers of every style.
           </p>
         </div>
 

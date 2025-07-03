@@ -22,8 +22,11 @@ const Hero = () => {
       {/* Content */}
       <div className="relative z-10 text-center text-white px-4 max-w-4xl mx-auto">
       <div className="mb-4 animate-fade-in">
-          <span className="inline-block px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-sm font-medium border border-white/20">
-          🇵🇹 Handcrafted in Portugal since 2022
+          <span className="inline-block px-4 py-1 bg-white/10 backdrop-blur-sm rounded-full text-sm font-medium border border-white/20">
+            <span className="inline-flex items-center gap-2">
+              <img src="https://flagcdn.com/pt.svg" alt="Portugal flag" className="w-6 h-4 inline-block rounded-sm shadow" />
+              Handcrafted in Portugal
+            </span>
           </span>
         </div>
         <h1 className="text-6xl md:text-8xl font-bold mb-6 animate-fade-in">
