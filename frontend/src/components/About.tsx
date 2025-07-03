@@ -1,4 +1,3 @@
-
 import { Users, Award, Heart, Wrench } from "lucide-react";
 import grandpa from "../assets/images/surfboards/grandpa.png";
 
@@ -78,7 +77,7 @@ const About = () => {
             <img 
               src={grandpa} 
               alt="Surfboard workshop"
-              className="rounded-lg shadow-xl"
+              className="rounded-lg shadow-xl w-52 md:w-80 lg:w-[22rem] xl:w-[26rem] h-auto object-cover"
             />
             <div className="absolute -bottom-6 -left-6 bg-blue-600 text-white p-6 rounded-lg shadow-lg">
               <p className="font-semibold">"Every board tells a story"</p>
