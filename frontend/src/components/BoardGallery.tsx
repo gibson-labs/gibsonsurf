@@ -6,6 +6,10 @@ import HighPerformance from "../assets/images/surfboards/AlgarveHighPerformanceB
 
 
 const BoardGallery = () => {
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    element?.scrollIntoView({ behavior: 'smooth' });
+};
   const boards = [
     {
       id: 1,
@@ -128,11 +132,12 @@ const BoardGallery = () => {
             Don't see what you're looking for?
           </h3>
           <p className="text-lg text-slate-600 mb-8 max-w-2xl mx-auto">
-            We specialize in custom boards tailored to your style and the unique conditions 
-            of Portugal's coasts. Every surfer's dream deserves the perfect board.
+            We specialize in custom boards tailored to your unique <br />style. Every surfer's dream deserves the perfect board.
           </p>
-          <button className="bg-blue-700 hover:bg-blue-800 text-white px-10 py-4 rounded-full font-semibold text-lg shadow-xl transform hover:scale-105 transition-all duration-300">
-            Custom Board
+          <button
+          onClick={() => scrollToSection('contact')}
+           className="bg-blue-700 hover:bg-blue-800 text-white px-10 py-4 rounded-full font-semibold text-lg shadow-xl transform hover:scale-105 transition-all duration-300">
+            Reach Out
           </button>
         </div>
       </div>
