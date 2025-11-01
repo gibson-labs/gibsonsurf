@@ -1,23 +1,14 @@
-version: '3.8'
+version: "3.8"
 
 services:
-  frontend:
+  web:
     build:
-      context: ./frontend
-      dockerfile: Dockerfile
-    ports:
-      - "8081:80"
-    depends_on:
-      - backend
-    restart: unless-stopped
-
-  backend:
-    build:
-      context: ./backend
+      context: .
       dockerfile: Dockerfile
     environment:
-      - FLASK_ENV=production
-      - FLASK_APP=run.py
+      FLASK_ENV: production
+      FLASK_APP: run.py
+      PORT: 5000
     ports:
-      - "5001:5000"
+      - "5001:5000"   # single container, one port (keep old backend external port)
     restart: unless-stopped
