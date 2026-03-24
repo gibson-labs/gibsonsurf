@@ -22,4 +22,5 @@ jobs:
             PROJECT_NAME="gibsonsurf-dev"
           fi
           docker compose -p "$PROJECT_NAME" -f "$COMPOSE_FILE" down --remove-orphans
-          docker compose -p "$PROJECT_NAME" -f "$COMPOSE_FILE" up -d --force-recreate --remove-orphans --build
+          docker compose -p "$PROJECT_NAME" -f "$COMPOSE_FILE" build --no-cache
+          docker compose -p "$PROJECT_NAME" -f "$COMPOSE_FILE" up -d --force-recreate --remove-orphans
