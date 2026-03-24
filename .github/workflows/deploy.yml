@@ -1,11 +1,11 @@
 name: Deploy Portfolio
 on:
   push:
-    branches: [ main ]
+    branches: [ main, dev ]
 
 jobs:
   deploy:
-    runs-on: [ self-hosted, gibsonlabs ]
+    runs-on: [ self-hosted, hostinger ]
 
     steps:
       - name: Checkout code
@@ -14,7 +14,12 @@ jobs:
       - name: Build & deploy
         run: |
           cd "${{ github.workspace }}"
-          # stop & remove any old containers (even if names changed)
-          docker compose down --remove-orphans
-          # rebuild and recreate everything
-          docker compose up -d --force-recreate --remove-orphans --build
+          if [ "${{ github.ref_name }}" = "main" ]; then
+            COMPOSE_FILE="docker-compose.yml"
+            PROJECT_NAME="gibsonsurf"
+          else
+            COMPOSE_FILE="docker-compose.dev.yml"
+            PROJECT_NAME="gibsonsurf-dev"
+          fi
+          docker compose -p "$PROJECT_NAME" -f "$COMPOSE_FILE" down --remove-orphans
+          docker compose -p "$PROJECT_NAME" -f "$COMPOSE_FILE" up -d --force-recreate --remove-orphans --build
