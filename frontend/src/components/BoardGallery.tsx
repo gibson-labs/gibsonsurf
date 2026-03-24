@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
 import spaceboard from "../assets/images/spaceboard.jpg";
 import TyeDyeFire from "../assets/images/TyeDyeFire.jpg";
 import HighPerformance from "../assets/images/surfboards/AlgarveHighPerformanceBottom.jpg";
@@ -60,28 +60,30 @@ const boards = [
   },
 ];
 
+// Fixed card dimensions — NEVER change on active to avoid layout shift
+const CARD_WIDTH = 320;  // px  (w-80)
+const CARD_GAP = 24;     // px  (gap-6 = 1.5rem = 24px)
+const CARD_STEP = CARD_WIDTH + CARD_GAP;
+
 const BoardGallery = () => {
-  const scrollRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
 
-  const scrollToIndex = (index: number) => {
-    const clamped = Math.max(0, Math.min(index, boards.length - 1));
-    setActiveIndex(clamped);
-    const container = scrollRef.current;
-    if (!container) return;
-    const card = container.children[clamped] as HTMLElement;
-    if (card) {
-      container.scrollTo({
-        left: card.offsetLeft - container.offsetLeft - (container.clientWidth / 2) + (card.clientWidth / 2),
-        behavior: "smooth",
-      });
-    }
+  const goTo = (index: number) => {
+    setActiveIndex(Math.max(0, Math.min(index, boards.length - 1)));
   };
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     element?.scrollIntoView({ behavior: "smooth" });
   };
+
+  // Offset so the active card is always centred in a ~1 card-wide viewport.
+  // We shift the track left by (activeIndex * CARD_STEP) so card[activeIndex]
+  // aligns to the left edge of the viewport, then nudge right by half the
+  // remaining viewport space.  Because the outer wrapper is exactly CARD_WIDTH
+  // wide we just need: translateX = -(activeIndex * CARD_STEP).
+  // For a wider viewport we centre it properly using CSS calc below.
+  const translateX = -(activeIndex * CARD_STEP);
 
   return (
     <section id="boards" className="py-24 bg-white relative overflow-hidden">
@@ -110,7 +112,7 @@ const BoardGallery = () => {
 
           {/* Left Arrow */}
           <button
-            onClick={() => scrollToIndex(activeIndex - 1)}
+            onClick={() => goTo(activeIndex - 1)}
             disabled={activeIndex === 0}
             className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-20 w-12 h-12 flex items-center justify-center bg-white rounded-full shadow-xl border border-slate-200 text-slate-700 hover:bg-blue-700 hover:text-white hover:border-blue-700 transition-all duration-300 disabled:opacity-30 disabled:cursor-not-allowed"
             aria-label="Previous board"
@@ -122,7 +124,7 @@ const BoardGallery = () => {
 
           {/* Right Arrow */}
           <button
-            onClick={() => scrollToIndex(activeIndex + 1)}
+            onClick={() => goTo(activeIndex + 1)}
             disabled={activeIndex === boards.length - 1}
             className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-20 w-12 h-12 flex items-center justify-center bg-white rounded-full shadow-xl border border-slate-200 text-slate-700 hover:bg-blue-700 hover:text-white hover:border-blue-700 transition-all duration-300 disabled:opacity-30 disabled:cursor-not-allowed"
             aria-label="Next board"
@@ -132,39 +134,67 @@ const BoardGallery = () => {
             </svg>
           </button>
 
-          {/* Scrollable Track */}
-          <div
-            ref={scrollRef}
-            className="flex gap-6 overflow-x-auto scroll-smooth pb-4 px-2 snap-x snap-mandatory scrollbar-hide"
-            style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
-          >
-            {boards.map((board, index) => (
-              <div
-                key={board.id}
-                onClick={() => scrollToIndex(index)}
-                className={`snap-center flex-shrink-0 cursor-pointer transition-all duration-500 rounded-3xl overflow-hidden shadow-xl border-2
-                  ${activeIndex === index
-                    ? "border-blue-500 scale-100 opacity-100 w-80 md:w-96"
-                    : "border-transparent scale-95 opacity-60 w-72 md:w-80"
-                  }`}
-              >
-                <div className="relative h-96 md:h-[28rem] bg-slate-100">
-                  <img
-                    src={board.image}
-                    alt={board.name}
-                    className="w-full h-full object-cover"
-                  />
-                  {/* Overlay on active */}
-                  <div className={`absolute inset-0 bg-gradient-to-t from-slate-900/70 via-slate-900/10 to-transparent transition-opacity duration-300 ${activeIndex === index ? "opacity-100" : "opacity-0"}`} />
-                  {activeIndex === index && (
-                    <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                      <h3 className="text-2xl font-bold mb-1">{board.name}</h3>
-                      <p className="text-sm text-white/80 leading-relaxed">{board.description}</p>
+          {/*
+            Viewport: clips the track, horizontally centred.
+            overflow-hidden ensures cards outside the view are not visible.
+            The width is deliberately wider than one card so neighbours peek in.
+          */}
+          <div className="overflow-hidden mx-auto" style={{ maxWidth: "900px" }}>
+            {/*
+              Track: a single flex row that slides via translateX.
+              No scrollTo, no snap, no overflow-x — pure transform animation.
+              Width is fixed so the layout never reflows.
+            */}
+            <div
+              className="flex pb-4"
+              style={{
+                gap: `${CARD_GAP}px`,
+                // Centre the active card inside the 900px viewport:
+                // shift = -(activeIndex * CARD_STEP) + (viewport/2 - CARD_WIDTH/2)
+                // We express the static part as a CSS calc so it responds to
+                // the actual rendered viewport width automatically.
+                transform: `translateX(calc(${translateX}px + (min(900px, 100vw - 2rem) / 2) - ${CARD_WIDTH / 2}px))`,
+                transition: "transform 400ms cubic-bezier(0.4, 0, 0.2, 1)",
+                willChange: "transform",
+              }}
+            >
+              {boards.map((board, index) => {
+                const isActive = activeIndex === index;
+                return (
+                  <div
+                    key={board.id}
+                    onClick={() => goTo(index)}
+                    // Width is ALWAYS CARD_WIDTH — never changes — so the track
+                    // never reflows and the translateX math is always exact.
+                    style={{ width: `${CARD_WIDTH}px`, flexShrink: 0 }}
+                    className={`cursor-pointer rounded-3xl overflow-hidden shadow-xl border-2 transition-all duration-400
+                      ${isActive
+                        ? "border-blue-500 opacity-100 scale-100"
+                        : "border-transparent opacity-50 scale-95"
+                      }`}
+                  >
+                    <div className="relative bg-slate-100" style={{ height: "28rem" }}>
+                      <img
+                        src={board.image}
+                        alt={board.name}
+                        className="w-full h-full object-cover"
+                      />
+                      {/* Gradient overlay — always present for active, hidden for inactive */}
+                      <div
+                        className={`absolute inset-0 bg-gradient-to-t from-slate-900/70 via-slate-900/10 to-transparent transition-opacity duration-300 ${isActive ? "opacity-100" : "opacity-0"}`}
+                      />
+                      {/* Name + description — only rendered when active */}
+                      {isActive && (
+                        <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                          <h3 className="text-2xl font-bold mb-1">{board.name}</h3>
+                          <p className="text-sm text-white/80 leading-relaxed">{board.description}</p>
+                        </div>
+                      )}
                     </div>
-                  )}
-                </div>
-              </div>
-            ))}
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </div>
 
@@ -173,7 +203,7 @@ const BoardGallery = () => {
           {boards.map((_, index) => (
             <button
               key={index}
-              onClick={() => scrollToIndex(index)}
+              onClick={() => goTo(index)}
               className={`rounded-full transition-all duration-300 ${
                 activeIndex === index
                   ? "bg-blue-600 w-6 h-2"
