@@ -5,10 +5,17 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    container_name: gibsonsurf-dev-web
     environment:
       FLASK_ENV: development
       FLASK_APP: run.py
       PORT: 5000
-    ports:
-      - "5002:5000"
+    expose:
+      - "5000"
     restart: unless-stopped
+    networks:
+      - proxy
+
+networks:
+  proxy:
+    external: true
