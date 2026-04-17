@@ -35,9 +35,7 @@ const Hero = () => {
           <span className="text-4xl md:text-6xl font-light">Surf Boards</span>
         </h1>
         <p className="text-xl md:text-2xl mb-8 opacity-90 animate-fade-in animation-delay-300">
-          Handcrafted with passion. Shaped for perfection. 
-          <br />
-          Custom surfboards made by our family for yours.
+          Hello how are you doing today check out our boards
         </p>
         <div className="space-x-4 animate-fade-in animation-delay-500">
           <Button 
