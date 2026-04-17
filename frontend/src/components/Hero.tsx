@@ -39,21 +39,13 @@ const Hero = () => {
           <br />
           From our family to yours.
         </p>
-        <div className="space-x-4 animate-fade-in animation-delay-500">
+        <div className="flex justify-center animate-fade-in animation-delay-500">
           <Button 
             size="lg" 
             onClick={() => scrollToSection('boards')}
              className="bg-blue-700 hover:bg-blue-800 text-white px-8 py-4 text-lg font-semibold rounded-full shadow-2xl transform hover:scale-105 transition-all duration-300"
           >
             View Our Boards
-          </Button>
-          <Button 
-            size="lg" 
-            variant="outline" 
-            onClick={() => scrollToSection('contact')}
-            className="border-2 border-white/80 text-white hover:bg-white hover:text-slate-900 px-8 py-4 text-lg font-semibold rounded-full backdrop-blur-sm bg-white/15 transform hover:scale-105 transition-all duration-300"
-          >
-            Get Custom Quote
           </Button>
         </div>
       </div>
